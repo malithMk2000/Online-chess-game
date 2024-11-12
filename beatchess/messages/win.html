@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS for the win animation */
+#winAnimation {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#winAnimation h2 {
+    color: green;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Animation effect */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+    <script>
+        // Function to show the win animation
+function showWinAnimation() {
+    var winAnimation = document.getElementById('winAnimation');
+    winAnimation.style.display = 'block';
+    winAnimation.classList.add('animate__animated', 'animate__bounce');
+
+    // Hide the animation after 3 seconds
+    setTimeout(function() {
+        winAnimation.style.display = 'none';
+        window.location.href = "../profile.php";
+    }, 3000);
+}
+window.onload = function() {
+    showWinAnimation();
+};
+
+    </script>
+</head>
+<body>
+    <div id="winAnimation">
+        <!-- Animation content here -->
+        <h2>You Won!</h2>
+    </div>
+</body>
+</html>
